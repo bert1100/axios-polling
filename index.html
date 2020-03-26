@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="dist/main.js" ></script>
+    <script>
+        function go() {
+            api.asyncAjax('get',"https://127.0.0.1:8000/origin_request").then(function(response) {
+                console.log(response)
+            }).catch(function(error) {
+                console.log(error)
+            })
+        }
+    </script>
+</head>
+<body>
+    <h2>测试ajax进入轮询框架</h2>
+    原始ajax：<a href="https://127.0.0.1:8000/origin_request">https://127.0.0.1:8000/origin_request</a> <br>
+    轮询url： /polling
+    <br>
+    取结果url：/getresult?taskId=
+    <br>
+
+
+    <button onclick="go()">click</button>
+
+</body>
+</html>
