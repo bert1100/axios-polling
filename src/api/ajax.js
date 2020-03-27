@@ -7,7 +7,6 @@ import {axiosPollingInterceptor, axiosRetryInterceptor} from './ajaxpolling';
 let baseURL = '';
 export default class Ajax {
     axios(method, url, params) {
-
         // 增加axios的拦截器配置：用于轮询
         axios.interceptors.response.use(axiosPollingInterceptor, axiosRetryInterceptor);
 
