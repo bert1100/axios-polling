@@ -68,7 +68,7 @@ axios.interceptors.response.use(axiosPollingInterceptor, axiosRetryInterceptor);
 
 - 轮询中条件
 
-```json
+```js
 {
     status: 'success', // status的状态范围：success、wait、update、exception、cancel
 }
@@ -85,15 +85,15 @@ exception/cancel：返回 `{flag:false,msg:'服务异常，请稍后重试'}`
 #### 禁止轮询
 
 ```js
-## 全局取消轮询
+// 全局取消轮询
 const myInterceptor = axios.interceptors.response.use(function () {/*...*/});
 axios.interceptors.response.eject(myInterceptor); //注意是 eject（驱逐）！！
 
-## 实例取消轮询拦截器：
+// 实例取消轮询拦截器：
 const instance = axios.create();
 instance.interceptors.response.use(function () {/*...*/});
 
-## 例如在项目中：
+// 例如在项目中：
 api.asyncAjax('get', '/stu/xxxx')
     .interceptors.response.use(function () {/*...*/})
     .then(function(res){ /* dosomething */})
@@ -107,11 +107,11 @@ api.asyncAjax('get', '/stu/xxxx')
 
 axios的配置项需满足的格式
 
-```json
+```js
 {
     'params': { taskId: _this.taskId }, //服务器所需参数，自定义
-     '__taskId': _this.taskId,  //必填，__taskId 是轮询中的状态标识
-     '__needRes': false // 必填，false则表示不调用ajax来获取结果
+    '__taskId': _this.taskId,  //必填，__taskId 是轮询中的状态标识
+    '__needRes': false // 必填，false则表示不调用ajax来获取结果
 }
 ```
 
