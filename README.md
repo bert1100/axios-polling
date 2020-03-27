@@ -1,7 +1,7 @@
 # 基于axios的ajax轮询
 
-axios的拦截器实现的功能：
-
+基于axios的拦截器实现的功能：
+> https://github.com/axios/axios
 - 请求失败，自动重试
 - 请求不符合预期时，自动 进入轮询，轮询结束直接取结果
 
