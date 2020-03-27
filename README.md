@@ -57,7 +57,7 @@ axios.interceptors.response.use(axiosPollingInterceptor, axiosRetryInterceptor);
 
 - 轮询条件
 
-```json
+```js
 {
     invokeStatus:'SUCCESS',  // 必填，且值为 SUCCESS
     taskId:'y234ert238423', // 必填，taskId 不能为空
